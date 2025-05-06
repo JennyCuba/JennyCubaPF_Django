@@ -61,7 +61,6 @@ def condicionales_y_bucles(request):
     })
     
 def crear_articulo(request, articulo, descripcion, precio):
-    #auto = Auto(marca=random.choice(['Ford', 'Fiat', 'Chevrolet', 'Ferrari', 'Mercedes']), modelo='Generico', anio=random.choice([2020, 2021, 2022, 2023, 2024]))
     articulo = Articulo(articulo= articulo, descripcion= descripcion, precio=precio)
     articulo.save()
-    return render(request, 'inicio/registro_articulo.html', {'articulo':articulo})
+    return render(request, 'inicio/crear_articulo.html', {'articulo':articulo})

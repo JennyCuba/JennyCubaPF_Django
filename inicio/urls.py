@@ -11,5 +11,5 @@ urlpatterns = [
     path('mi_template/', mi_template, name='mi_template'),
     path('mi_template2/', mi_template2, name='mi_template2'),
     path('condicionales_y_bucles/', condicionales_y_bucles, name='condicionales_y_bucles'),
-    path('crear_articulo/<str:marca>/<str:modelo>/<int:anio>/', crear_articulo, name='crear_articulo'),
+    path('crear_articulo/<str:articulo>/<str:descripcion>/<int:precio>/', crear_articulo, name='crear_articulo'),
 ]
