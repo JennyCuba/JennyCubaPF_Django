@@ -60,7 +60,25 @@ def condicionales_y_bucles(request):
         'Numeros': list(range(15))
     })
     
-def crear_articulo(request, articulo, descripcion, precio):
-    articulo = Articulo(articulo= articulo, descripcion= descripcion, precio=precio)
-    articulo.save()
-    return render(request, 'inicio/crear_articulo.html', {'articulo':articulo})
+#def crear_articulo(request, articulo, descripcion, precio):
+    # articulo = Articulo(articulo= articulo, descripcion= descripcion, precio=precio)
+    # articulo.save()
+    # return render(request, 'inicio/crear_articulo.html', {'articulo':articulo})
+
+def crear_articulo(request):
+    print('*************************************************************************************')
+    print('request', request)
+    print('request', request.GET)
+    print('request', request.POST)
+    print('*************************************************************************************')
+    
+    if request.method == 'POST':
+  
+        if request.POST.get('articulo') and request.POST.get('descripcion') and request.POST.get('precio'):
+            articulo = Articulo(
+                articulo=request.POST.get('articulo'),
+                descripcion=request.POST.get('descripcion'),
+                precio=request.POST.get('precio')
+            )
+            articulo.save()
+    return render(request, 'inicio/crear_articulo.html')
