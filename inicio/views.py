@@ -100,6 +100,7 @@ def registro_articulo(request):
     formulario1 = Registro()
     
     if request.method == 'POST':
+        formulario1 = Registro(request.POST)
         if formulario1.is_valid():
             data = formulario1.cleaned_data
         
