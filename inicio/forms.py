@@ -5,7 +5,7 @@ class RegistroArticuloForm(forms.Form):
     descripcion = forms.CharField(max_length=20)
     precio = forms.IntegerField()
     
-class Registro(forms.Form):
+class RegistroForm(forms.Form):
     articulo = forms.CharField(max_length=20)
     descripcion = forms.CharField(max_length=20)
     precio = forms.IntegerField()

@@ -2,9 +2,9 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context, loader
 from django.shortcuts import render
-from inicio.models import Articulo
+from inicio.models import Articulo, Registro
 import random
-from inicio.forms import RegistroArticuloForm, Registro
+from inicio.forms import RegistroArticuloForm, RegistroForm
 from django.shortcuts import redirect
 
 def bienvenida(request):
@@ -77,13 +77,14 @@ def crear_articulo(request):
     formulario = RegistroArticuloForm()
     
     if request.method == 'POST':
+        formulario = RegistroArticuloForm(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
         
             articulo = Articulo(
-            articulo=data.get('articulo'),
-            descripcion=data.get('descripcion'),
-            precio=data.get('precio')
+                articulo=data.get('articulo'),
+                descripcion=data.get('descripcion'),
+                precio=data.get('precio')
             )
             articulo.save()
             
@@ -97,10 +98,10 @@ def registro_articulo(request):
     print('POST', request.POST)
     print('*************************************************************************************')
     
-    formulario1 = Registro()
+    formulario1 = RegistroForm()
     
     if request.method == 'POST':
-        formulario1 = Registro(request.POST)
+        formulario1 = RegistroForm(request.POST)
         if formulario1.is_valid():
             data = formulario1.cleaned_data
         
