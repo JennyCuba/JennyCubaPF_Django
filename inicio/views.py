@@ -5,6 +5,7 @@ from django.shortcuts import render
 from inicio.models import Articulo
 import random
 from inicio.forms import RegistroArticuloForm
+from django.shortcuts import redirect
 
 def bienvenida(request):
     return render(request, 'inicio/bienvenida.html')
@@ -86,5 +87,5 @@ def crear_articulo(request):
             )
             articulo.save()
             
-            return render(request, 'inicio/inicio.html')
+            return redirect('inicio:crear_articulo')
     return render(request, 'inicio/crear_articulo.html', {'formulario': formulario})
