@@ -4,6 +4,7 @@ from django.template import Template, Context, loader
 from django.shortcuts import render
 from inicio.models import Articulo
 import random
+from inicio.forms import RegistroArticuloForm
 
 def bienvenida(request):
     return render(request, 'inicio/bienvenida.html')
@@ -68,17 +69,22 @@ def condicionales_y_bucles(request):
 def crear_articulo(request):
     print('*************************************************************************************')
     print('request', request)
-    print('request', request.GET)
-    print('request', request.POST)
+    print('GET', request.GET)
+    print('POST', request.POST)
     print('*************************************************************************************')
     
+    formulario = RegistroArticuloForm()
+    
     if request.method == 'POST':
-  
-        if request.POST.get('articulo') and request.POST.get('descripcion') and request.POST.get('precio'):
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+        
             articulo = Articulo(
-                articulo=request.POST.get('articulo'),
-                descripcion=request.POST.get('descripcion'),
-                precio=request.POST.get('precio')
+            articulo=data.get('articulo'),
+            descripcion=data.get('descripcion'),
+            precio=data.get('precio')
             )
             articulo.save()
-    return render(request, 'inicio/crear_articulo.html')
+            
+            return render(request, 'inicio/inicio.html')
+    return render(request, 'inicio/crear_articulo.html', {'formulario': formulario})

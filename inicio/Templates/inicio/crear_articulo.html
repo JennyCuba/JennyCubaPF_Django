@@ -9,9 +9,9 @@
 {% endblock h1_header %}
 
 {% block main %}
-<form action={% url 'inicio:crear_articulo' %} metodo="post">
+<form action={% url 'inicio:crear_articulo' %} method="post">
     {% csrf_token %}
-    <p>
+    {% comment %}<p>
       Nombre:
       <input type="text" name="nombre" placeholder="articulo">
     </p>
@@ -25,9 +25,13 @@
       Precio:
       <input type="number" name="precio"placeholder="precio">
     </p>
+    {% endcomment %}
+
+    {{formulario}}
+
 
     <input type="submit" value="Enviar">
-       {% comment %} <button> enviar articulo </button> {% endcomment %}
+    {% comment "" %}<button> enviar articulo </button> {% endcomment %}
 
 
 </form>  
