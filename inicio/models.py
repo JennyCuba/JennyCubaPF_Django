@@ -7,3 +7,11 @@ class Articulo(models.Model):
     
     def __str__(self):
         return f"Articulo({self.id}): {self.articulo} - {self.descripcion}"
+
+class Registro(models.Model):
+    articulo = models.CharField(max_length=20)
+    descripcion = models.CharField(max_length=20)
+    precio = models.IntegerField()
+    
+    def __str__(self):
+        return f"Registro({self.id}): {self.articulo} - {self.descripcion}"

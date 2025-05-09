@@ -4,7 +4,7 @@ from django.template import Template, Context, loader
 from django.shortcuts import render
 from inicio.models import Articulo
 import random
-from inicio.forms import RegistroArticuloForm
+from inicio.forms import RegistroArticuloForm, Registro
 from django.shortcuts import redirect
 
 def bienvenida(request):
@@ -89,3 +89,26 @@ def crear_articulo(request):
             
             return redirect('inicio:crear_articulo')
     return render(request, 'inicio/crear_articulo.html', {'formulario': formulario})
+
+def registro_articulo(request):
+    print('*************************************************************************************')
+    print('request', request)
+    print('GET', request.GET)
+    print('POST', request.POST)
+    print('*************************************************************************************')
+    
+    formulario1 = Registro()
+    
+    if request.method == 'POST':
+        if formulario1.is_valid():
+            data = formulario1.cleaned_data
+        
+            articulo = Registro(
+            articulo=data.get('articulo'),
+            descripcion=data.get('descripcion'),
+            precio=data.get('precio')
+            )
+            articulo.save()
+            
+            return redirect('inicio:registro_articulo')
+    return render(request, 'inicio/registro_articulo.html', {'formulario': formulario1})

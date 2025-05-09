@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+    Registrar articulo
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>registrar articulo</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<form action={% url 'inicio:registro_articulo' %} method="post">
+    {% csrf_token %}
+    {% comment %}<p>
+      Nombre:
+      <input type="text" name="nombre" placeholder="articulo">
+    </p>
+    
+    <p>
+      Descripcion:
+      <input type="text" name="descripcion" placeholder="descripcion">
+    </p>
+
+    <p>
+      Precio:
+      <input type="number" name="precio"placeholder="precio">
+    </p>
+    {% endcomment %}
+
+    {{formulario}}
+
+
+    <input type="submit" value="Enviar">
+    {% comment "" %}<button> enviar articulo </button> {% endcomment %}
+
+
+</form>  
+{% endblock main %}

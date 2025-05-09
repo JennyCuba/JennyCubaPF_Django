@@ -1,4 +1,4 @@
-from inicio.views import bienvenida, fecha_y_hora, mi_template, saludo, mi_template2, condicionales_y_bucles, crear_articulo, inicio
+from inicio.views import bienvenida, fecha_y_hora, mi_template, saludo, mi_template2, condicionales_y_bucles, crear_articulo, inicio, registro_articulo
 from django.urls import path
 
 app_name = 'inicio'
@@ -13,4 +13,5 @@ urlpatterns = [
     path('condicionales_y_bucles/', condicionales_y_bucles, name='condicionales_y_bucles'),
     # path('crear_articulo/<str:articulo>/<str:descripcion>/<int:precio>/', crear_articulo, name='crear_articulo'),
     path('crear_articulo/', crear_articulo, name='crear_articulo'),
+    path('registro_articulo/', registro_articulo, name='registro_articulo'),
 ]
