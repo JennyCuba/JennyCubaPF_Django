@@ -105,9 +105,9 @@ def registro_articulo(request):
             data = formulario1.cleaned_data
         
             articulo = Registro(
-            articulo=data.get('articulo'),
-            descripcion=data.get('descripcion'),
-            precio=data.get('precio')
+                articulo=data.get('articulo'),
+                descripcion=data.get('descripcion'),
+                precio=data.get('precio')
             )
             articulo.save()
             
