@@ -6,6 +6,6 @@ class Articulo(models.Model):
     precio = models.IntegerField()
     
     def __str__(self):
-        return f"Articulo({self.id}): {self.articulo} - {self.descripcion}"
+        return f"Artículo({self.id}): {self.articulo} - {self.descripcion}"
 
 

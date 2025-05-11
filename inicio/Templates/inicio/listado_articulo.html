@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-    Articulos
+    Listado
 {% endblock title_head %}
 
 {% block h1_header %}
-    Listado de articulos
+    Realizar búsqueda de artículos
 {% endblock h1_header %}
 
 {% block main %}
 <p>
     <form action="{% url 'inicio:listado_articulo' %}">
 
-        {% comment "" %} V1 V2
-        <input type="text" name="articulo" placeholder="Articulo">
-        <input type="text" name="descripcion" placeholder="Descripcion"> {% endcomment %}
         {{formulario_busqueda}}
         
         <input type="submit" value="Buscar" />
@@ -31,7 +28,7 @@
 </ul>
 
 {% else %}
-<p>No hay articulos registrados</p>
+<p>No hay artículos registrados</p>
 
 {% endif %}
 {% endblock main %}

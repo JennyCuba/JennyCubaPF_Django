@@ -10,7 +10,6 @@ from django.shortcuts import redirect
     
 def inicio(request):
     return render(request, 'inicio/inicio.html')
-    #return HttpResponse ('<h1>Bienvenida!<h1/>')
 
 def crear_articulo(request):
  
@@ -22,9 +21,9 @@ def crear_articulo(request):
             data = formulario.cleaned_data
         
             articulo = Articulo(
-                articulo=data.get('articulo'),
-                descripcion=data.get('descripcion'),
-                precio=data.get('precio')
+                articulo=data.get('Artículo'),
+                descripcion=data.get('Descripción'),
+                precio=data.get('Precio')
             )
             articulo.save()
             
@@ -36,8 +35,8 @@ def listado_articulo(request):
 
     formulario_busqueda = BusquedaForm(request.GET)
     if formulario_busqueda.is_valid():
-        articulo_buscado = formulario_busqueda.cleaned_data.get('articulo')
-        descripcion_buscada = formulario_busqueda.cleaned_data.get('descripcion')
+        articulo_buscado = formulario_busqueda.cleaned_data.get('Artículo')
+        descripcion_buscada = formulario_busqueda.cleaned_data.get('Descripción')
         lista_articulo = Articulo.objects.filter(articulo__icontains=articulo_buscado, descripcion__icontains=descripcion_buscada)
     else:
         lista_articulo = []
