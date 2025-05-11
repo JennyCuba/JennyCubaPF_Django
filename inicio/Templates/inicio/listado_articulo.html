@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+    Articulos
+{% endblock title_head %}
+
+{% block h1_header %}
+    Listado de articulos
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+    <form action="{% url 'inicio:listado_articulo' %}">
+
+        {% comment "" %} V1 V2
+        <input type="text" name="articulo" placeholder="Articulo">
+        <input type="text" name="descripcion" placeholder="Descripcion"> {% endcomment %}
+        {{formulario_busqueda}}
+        
+        <input type="submit" value="Buscar" />
+    </form>
+</p>
+
+{% if listado_articulo %}
+<ul>
+    {% for articulo in listado_articulo %}
+    <li>
+        {{articulo}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>No hay articulos registrados</p>
+
+{% endif %}
+{% endblock main %}

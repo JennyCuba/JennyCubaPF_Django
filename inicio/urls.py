@@ -1,17 +1,11 @@
-from inicio.views import bienvenida, fecha_y_hora, mi_template, saludo, mi_template2, condicionales_y_bucles, crear_articulo, inicio, registro_articulo
+# from inicio.views import bienvenida, fecha_y_hora, mi_template, saludo, mi_template2, condicionales_y_bucles, crear_articulo, inicio, registro_articulo
 from django.urls import path
+from inicio import views
 
 app_name = 'inicio'
 
 urlpatterns = [
-    path('', inicio, name='inicio'),
-    path('bienvenida/', bienvenida, name='bienvenida'),
-    path('saludo/<str:nombre>/<str:apellido>/', saludo, name='saludo'),
-    path('fecha_y_hora/', fecha_y_hora, name='fecha_y_hora'),
-    path('mi_template/', mi_template, name='mi_template'),
-    path('mi_template2/', mi_template2, name='mi_template2'),
-    path('condicionales_y_bucles/', condicionales_y_bucles, name='condicionales_y_bucles'),
-    # path('crear_articulo/<str:articulo>/<str:descripcion>/<int:precio>/', crear_articulo, name='crear_articulo'),
-    path('crear_articulo/', crear_articulo, name='crear_articulo'),
-    path('registro_articulo/', registro_articulo, name='registro_articulo'),
+    path('', views.inicio, name='inicio'),
+    path('crear_articulo/', views.crear_articulo, name='crear_articulo'),
+    path('listado_articulos/', views.listado_articulo, name='listado_articulo'),
 ]

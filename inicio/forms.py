@@ -5,7 +5,6 @@ class RegistroArticuloForm(forms.Form):
     descripcion = forms.CharField(max_length=20)
     precio = forms.IntegerField()
     
-class RegistroForm(forms.Form):
-    articulo = forms.CharField(max_length=20)
-    descripcion = forms.CharField(max_length=20)
-    precio = forms.IntegerField()
+class BusquedaForm(forms.Form):
+    articulo = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'placeholder': 'Articulo'}))
+    descripcion = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'placeholder': 'Descripcion'}))
