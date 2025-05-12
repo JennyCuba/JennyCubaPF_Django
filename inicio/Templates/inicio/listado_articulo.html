@@ -9,6 +9,7 @@
 {% endblock h1_header %}
 
 {% block main %}
+<a href={% url 'inicio:crear_articulo' %}>Ir a registro</a>
 <p>
     <form action="{% url 'inicio:listado_articulo' %}">
 
@@ -22,7 +23,10 @@
 <ul>
     {% for articulo in listado_articulo %}
     <li>
-        {{articulo}}
+        {{articulo}} 
+        | <a href={% url 'inicio:ver_articulo' articulo.id %}>Detalle</a>
+        | <a href={% url 'inicio:eliminar_articulo' articulo.id %}>Eliminar</a>
+        | <a href={% url 'inicio:editar_articulo' articulo.id %}>Editar</a>
     </li>
     {% endfor %}
 </ul>

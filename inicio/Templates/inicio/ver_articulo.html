@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title_head %}
+Articulo
+{% endblock title_head %}\
+{% block h1_header %}{{articulo}}{% endblock h1_header %}
+
+{% block main %}
+
+<ul>
+    <li>Artículo: {{articulo.articulo}}</li>
+    <li>Descripción: {{articulo.descripcion}}</li>
+    <li>Precio: {{articulo.precio}}</li>
+</ul>
+
+{% endblock main %}

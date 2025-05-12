@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+    Edición
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Editar el artículo</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<form action={% url 'inicio:editar_articulo' articulo.id %} method="post">
+    {% csrf_token %}
+
+
+    {{formulario}}
+
+
+    <input type="submit" value="Editar">
+
+</form>  
+{% endblock main %}
