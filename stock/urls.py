@@ -5,6 +5,7 @@ app_name = 'stock'
 
 urlpatterns = [
 
-    path('stock/', views.listado_stock.as_view(), name='listado_stock'),
+    path('', views.ListadoMovimientos.as_view(), name='listado_movimientos'),
+    path('movimientos/', views.RegistrarMovimientos.as_view(), name='registrar_movimientos'),
    
 ]

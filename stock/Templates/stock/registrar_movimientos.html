@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Registro
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Registrar un movimiento de stock</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Guardar Movimiento</button>
+  </form>
+</p>
+  <a href="{% url 'stock:listado_movimientos' %}">Volver al listado</a>
+{% endblock main %}
