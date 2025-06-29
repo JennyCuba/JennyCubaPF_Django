@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Iniciar Sesión
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Iniciar Sesión</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+  <form action={% url 'usuarios:iniciar_sesion' %} method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+</p>
+
+{% endblock main %}

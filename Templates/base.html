@@ -27,7 +27,7 @@
                 <a class="navbar-brand" href={% url "inicio:inicio" %}>Inicio</a>
                 <a class="navbar-brand" href={% url "inicio:listado_articulo" %}>Artículos</a>
                 <a class="navbar-brand" href={% url "stock:listado_movimientos" %}>Stock</a>
-                {% comment "" %}<a class="btn btn-primary" href="#signup">Sign Up</a>{% endcomment %}
+                <a class="btn btn-primary" href={% url "usuarios:iniciar_sesion" %}>Iniciar sesión</a>
             </div>
         </nav>
         <!-- Masthead-->
