@@ -8,7 +8,7 @@ class MovimientoStock(models.Model):
     observaciones = models.TextField(blank=True)
     
     def __str__(self):
-        return f"Movimiento: {self.id}, Tipo: {self.tipo}, Cantidad: {self.cantidad}, Fecha: {self.fecha}, Observaciones: {self.observaciones}"
+        return f"Movimiento: {self.id}, Articulo: {self.articulo}, Tipo: {self.tipo}, Cantidad: {self.cantidad}, Fecha: {self.fecha}, Observaciones: {self.observaciones}"
 
 
 #class Stock(models.Model):

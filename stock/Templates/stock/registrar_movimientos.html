@@ -10,7 +10,7 @@
 
 {% block main %}
 <p>
-  <form action={% url 'stock:registrar_movimiento' %} method="post" enctype="multipart/form-data">
+  <form action={% url 'stock:registrar_movimientos' %} method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
 

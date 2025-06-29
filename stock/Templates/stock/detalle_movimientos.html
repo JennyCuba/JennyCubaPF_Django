@@ -2,16 +2,16 @@
 {% block title_head %}
 Movimiento
 {% endblock title_head %}\
-{% block h1_header %}{{Movimiento}}{% endblock h1_header %}
+{% block h1_header %}Movimiento ID:{{movimientostock.id}}{% endblock h1_header %}
 
 {% block main %}
 
 <ul>
-    <li>Artículo: {{movimiento.articulo}}</li>
-    <li>Tipo: {{movimiento.tipo}}</li>
-    <li>Cantidad: {{movimiento.cantidad}}</li>
-    <li>Fecha: {{movimiento.fecha}}</li>
-    <li>Cantidad: {{movimiento.observaciones}}</li>
+    <li>Artículo: {{movimientostock.articulo}}</li>
+    <li>Tipo: {{movimientostock.tipo}}</li>
+    <li>Cantidad: {{movimientostock.cantidad}}</li>
+    <li>Fecha: {{movimientostock.fecha}}</li>
+    <li>Observaciones: {{movimientostock.observaciones}}</li>
 </ul>
 
 {% endblock main %}

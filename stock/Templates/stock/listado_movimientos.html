@@ -72,10 +72,9 @@ Movimientos de Stock
     <li>
         {{movimiento}}
         | <a href={% url 'stock:detalle_movimientos' movimiento.id %}>Ver</a>
-        {% comment "" %}
-        | <a href={% url 'stock:editar_paleta' paleta.id %}>Editar</a>
-        | <a href={% url 'stock:eliminar_paleta' paleta.id %}>Eliminar</a> 
-        {% endcomment %}
+        | <a href={% url 'stock:editar_movimientos' movimiento.id %}>Editar</a>
+        | <a href={% url 'stock:eliminar_movimientos' movimiento.id %}>Eliminar</a> 
+       
     </li>
     {% endfor %}
 </ul>

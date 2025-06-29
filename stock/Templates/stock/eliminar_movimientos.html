@@ -5,10 +5,10 @@ Eliminar Movimiento de Stock
 {% block h1_header %}Eliminar Movimiento de Stock{% endblock h1_header %}
 
 {% block main %}
-<form action={% url "stock:eliminar_movimientos" movimiento.id %} method="post">
+<form action={% url "stock:eliminar_movimientos" movimientostock.id %} method="post">
     {% csrf_token %}
     <p>
-        Estas seguro que queres eliminar a {{movimiento}}???
+        Estas seguro que queres eliminar a {{movimientostock.id}}???
     </p>
 
     <input type="submit" value='Confirmar borrado'>
