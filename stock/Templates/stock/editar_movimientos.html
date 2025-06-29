@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title_head %}
+Editar Movimiento de Stock
+{% endblock title_head %}
+
+{% block h1_header %}Editar Movimiento de Stock{% endblock h1_header %}
+
+{% block main %}
+{% endblock title_head %}
+{% block h1_header %}Editar Movimiento de Stock{% endblock h1_header %}
+
+{% block main %}
+<form action={% url "stock:editar_movimiento" movimiento.id %} method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value='Editar'>
+</form>
+{% endblock main %}

@@ -1,11 +1,11 @@
 from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context, loader
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from inicio.models import Articulo
 import random
 from inicio.forms import CrearForm, BusquedaForm, EditarForm
-from django.shortcuts import redirect
+
 
     
 def inicio(request):

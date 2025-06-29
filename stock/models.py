@@ -8,6 +8,19 @@ class MovimientoStock(models.Model):
     observaciones = models.TextField(blank=True)
     
     def __str__(self):
-        return f"Artículo: {self.articulo}, Tipo: {self.tipo}, Cantidad: {self.cantidad}, Fecha: {self.fecha}, Observaciones: {self.observaciones}"
+        return f"Movimiento: {self.id}, Tipo: {self.tipo}, Cantidad: {self.cantidad}, Fecha: {self.fecha}, Observaciones: {self.observaciones}"
 
-# Create your models here.
+
+#class Stock(models.Model):
+    #articulo = models.ForeignKey('inicio.Articulo', on_delete=models.CASCADE)
+    #cantidad = models.PositiveIntegerField(default=0)
+    
+    #def __str__(self):
+        #return f"Stock de {self.articulo.nombre}: {self.cantidad} unidades"
+    
+    #def actualizar_stock(self, cantidad, tipo):
+        #if tipo == 'entrada':
+            #self.cantidad += cantidad
+        #elif tipo == 'salida':
+            #self.cantidad -= cantidad
+        #self.save() 
