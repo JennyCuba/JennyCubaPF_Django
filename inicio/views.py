@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from inicio.models import Articulo
 import random
 from inicio.forms import CrearForm, BusquedaForm, EditarForm
+from django.contrib.auth.decorators import login_required
 
 
     
@@ -48,11 +49,13 @@ def ver_articulo(request, id_articulo):
     articulo = Articulo.objects.get(id=id_articulo)
     return render(request, 'inicio/ver_articulo.html', {'articulo': articulo})
 
+@login_required
 def eliminar_articulo(request, id_articulo):
     articulo = Articulo.objects.get(id=id_articulo)
     articulo.delete()
     return render(request, 'inicio/eliminar_articulo.html', {'articulo': articulo})
 
+@login_required
 def editar_articulo(request, id_articulo):
     articulo = Articulo.objects.get(id=id_articulo)
     formulario = EditarForm(initial={'Artículo': articulo.articulo, 'Descripción': articulo.descripcion, 'Precio': articulo.precio})

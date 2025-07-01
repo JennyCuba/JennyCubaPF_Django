@@ -25,14 +25,14 @@ class DetalleMovimientos(DetailView):
     model = MovimientoStock
     template_name = "stock/detalle_movimientos.html"
         
-class EditarMovimientos(UpdateView):
+class EditarMovimientos(LoginRequiredMixin, UpdateView):
     model = MovimientoStock
     fields = ['articulo', 'tipo', 'cantidad', 'observaciones']
     template_name = "stock/editar_movimientos.html"
     #form_class = ActualizarStockForm
     success_url = reverse_lazy('stock:listado_movimientos')
 
-class EliminarMovimientos(DeleteView):
+class EliminarMovimientos(LoginRequiredMixin, DeleteView):
     model = MovimientoStock
     template_name = "stock/eliminar_movimientos.html"
     success_url = reverse_lazy('stock:listado_movimientos')  
