@@ -25,10 +25,11 @@ class EditarPerfil(UserChangeForm):
     
     first_name = forms.CharField(required=False, label='Nombre')
     last_name = forms.CharField(required=False, label='Apellido')
+    avatar = forms.ImageField(required=False, label='Avatar')
     
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name', 'avatar']
         help_texts = {
             key: ''
             for key in fields

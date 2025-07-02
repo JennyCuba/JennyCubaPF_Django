@@ -6,6 +6,7 @@ from usuarios.forms import RegistroDeUsuario, EditarPerfil
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from usuarios.models import InfoUsuario
 
 def login(request):
     
@@ -17,6 +18,9 @@ def login(request):
             usuario = form.get_user()
             
             django_login(request, usuario)
+            
+            InfoUsuario.objects.get_or_create(user=usuario)
+            
             return redirect('inicio:inicio')
     
     return render (request, 'usuarios/iniciar_sesion.html', {'form': form})
@@ -42,11 +46,18 @@ def perfil(request):
     
 @login_required
 def editar_perfil(request):
+    
+    info_usuario = request.user.infousuario
     formulario = EditarPerfil(instance=request.user)
     
     if request.method == 'POST':
-        formulario = EditarPerfil(request.POST, instance =request.user)
+        formulario = EditarPerfil(request.POST, request.FILES, instance =request.user)
+        
         if formulario.is_valid():
+            
+            if formulario.cleaned_data.get('avatar'):
+                info_usuario.avatar = formulario.cleaned_data.get('avatar')
+            info_usuario.save()
             formulario.save()
             return redirect('usuarios:perfil')
                 
