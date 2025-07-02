@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Cambiar contraseña
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Cambiar contraseña</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+  <form action={% url 'usuarios:cambiar_contraseña' %} method="post">
+    {% csrf_token %}
+    {{form}}
+
+    <button type="submit">Guardar</button>
+  </form>
+</p>
+
+{% endblock main %}

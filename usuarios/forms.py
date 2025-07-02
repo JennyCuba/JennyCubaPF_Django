@@ -18,3 +18,18 @@ class RegistroDeUsuario(UserCreationForm):
             key: ''
             for key in fields
         }
+        
+class EditarPerfil(UserChangeForm):
+    email = forms.EmailField(required=False, label='Correo Electrónico')
+    password = None
+    
+    first_name = forms.CharField(required=False, label='Nombre')
+    last_name = forms.CharField(required=False, label='Apellido')
+    
+    class Meta:
+        model = User
+        fields = ['email', 'first_name', 'last_name']
+        help_texts = {
+            key: ''
+            for key in fields
+        }

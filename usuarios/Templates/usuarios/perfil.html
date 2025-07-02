@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Perfil de Usuario
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Perfil de {{request.user.first_name}} {{request.user.last_name}}</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+  <li>Nombre de usuario: {{ request.user.username }}</li>
+  <li>Correo electrónico: {{ request.user.email }}</li>
+  <li>Nombre: {{ request.user.first_name }}</li>
+  <li>Apellido: {{ request.user.last_name }}</li>
+</ul>
+<p>
+    <a href ={% url 'usuarios:editar_perfil' %}>Editar Perfil</a>
+</p>
+<p>
+    <a href ={% url 'usuarios:cambiar_contraseña' %}>Cambiar Contraseña</a>
+</p>
+
+{% endblock main %}
