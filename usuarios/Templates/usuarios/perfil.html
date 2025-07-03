@@ -14,6 +14,11 @@
   <li>Correo electrónico: {{ request.user.email }}</li>
   <li>Nombre: {{ request.user.first_name }}</li>
   <li>Apellido: {{ request.user.last_name }}</li>
+  <li>Avatar:
+    {% if request.user.infousuario.avatar %}
+    <img src={{request.user.infousuario.avatar.url}} alt="Avatar" height="100" width="100">
+    {% endif %}
+  </li>
 </ul>
 <p>
     <a href ={% url 'usuarios:editar_perfil' %}>Editar Perfil</a>

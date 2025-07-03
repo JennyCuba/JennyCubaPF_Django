@@ -48,7 +48,7 @@ def perfil(request):
 def editar_perfil(request):
     
     info_usuario = request.user.infousuario
-    formulario = EditarPerfil(instance=request.user)
+    formulario = EditarPerfil (initial={'avatar': info_usuario.avatar}, instance=request.user)
     
     if request.method == 'POST':
         formulario = EditarPerfil(request.POST, request.FILES, instance =request.user)
