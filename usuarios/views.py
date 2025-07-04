@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import login as django_login
 from django.contrib.auth.views import LogoutView, PasswordChangeView
-from usuarios.forms import RegistroDeUsuario, EditarPerfil
+from usuarios.forms import RegistroDeUsuario, EditarPerfil, CambiarContraseñaForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -64,5 +64,6 @@ def editar_perfil(request):
     return render(request, 'usuarios/editar_perfil.html', {'form': formulario})
 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
+    form_class = CambiarContraseñaForm
     template_name = 'usuarios/cambiar_contraseña.html'
     success_url = reverse_lazy('usuarios:perfil')

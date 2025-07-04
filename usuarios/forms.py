@@ -34,3 +34,20 @@ class EditarPerfil(UserChangeForm):
             key: ''
             for key in fields
         }
+
+class CambiarContraseñaForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        label='Contraseña Actual',
+        widget=forms.PasswordInput,
+        strip=False,
+    )
+    new_password1 = forms.CharField(
+        label='Nueva Contraseña',
+        widget=forms.PasswordInput,
+        strip=False,
+    )
+    new_password2 = forms.CharField(
+        label='Repetir Nueva Contraseña',
+        widget=forms.PasswordInput,
+        strip=False,
+    )
