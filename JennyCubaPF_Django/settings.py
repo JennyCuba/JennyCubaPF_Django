@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inicio',
     'stock',
-    'usuarios'
+    'usuarios',
+    'mensajeria',
 
 ]
 

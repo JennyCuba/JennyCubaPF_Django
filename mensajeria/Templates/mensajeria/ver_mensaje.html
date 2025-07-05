@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title_head %}
+Mensajería 
+{% endblock title_head %}\
+{% block h1_header %}Mensaje{% endblock h1_header %}
+
+{% block main %}
+
+<ul>
+    <li>Remitente: {{mensaje.remitente}}</li>
+    <li>Destinatario: {{mensaje.destinatario}}</li>
+    <li>Fecha: {{mensaje.fecha}}</li>
+    <li>Contenido: {{mensaje.contenido}}</li>
+    
+</ul>
+
+{% endblock main %}

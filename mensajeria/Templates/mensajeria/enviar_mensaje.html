@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Enviar Mensaje
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Enviar Mensaje</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+  <form action={% url 'mensajeria:enviar_mensaje' %} method="post">
+    {% csrf_token %}
+    {{form}}
+
+    <button type="submit">Enviar</button>
+  </form>
+</p>
+{% endblock main %}

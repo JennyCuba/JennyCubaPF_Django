@@ -29,6 +29,7 @@
                 <a class="navbar-brand" href={% url "stock:listado_movimientos" %}>Stock</a>
 
                 {% if request.user.is_authenticated %}
+                    <a class="navbar-brand" href ={% url "mensajeria:listar_mensaje" %} >Mensajería</a>
 
                     <a class="navbar-brand" href={% url "usuarios:perfil" %}>                    
                         {% if request.user.infousuario.avatar %}

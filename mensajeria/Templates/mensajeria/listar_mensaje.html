@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+    Mensajería    
+{% endblock title_head %}
+
+{% block h1_header %}
+    Lista de Mensajes
+{% endblock h1_header %}
+
+{% block main %}
+<a href={% url 'mensajeria:enviar_mensaje' %} class="btn btn-primary">Enviar Mensaje</a>
+
+
+{% if mensajes %}
+<ul>
+    {% for mensaje in mensajes %}
+    <li>
+        <a href={% url 'mensajeria:ver_mensaje' mensaje.id %}>{{mensaje}}</a>  
+        {% comment "" %}| <a href={% url 'inicio:ver_articulo' articulo.id %}>Detalle</a>
+        | <a href={% url 'inicio:eliminar_articulo' articulo.id %}>Eliminar</a>
+        | <a href={% url 'inicio:editar_articulo' articulo.id %}>Editar</a>{% endcomment %}
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>No hay mensajes para mostrar</p>
+
+{% endif %}
+{% endblock main %}
